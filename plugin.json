@@ -1,0 +1,31 @@
+{
+    "$schema": "https://github.com/AvengeMedia/DankMaterialShell/raw/refs/heads/master/PLUGINS/plugin-schema.json",
+    "id": "dankRecorder",
+    "name": "Dank Recorder",
+    "description": "Screen recorder driven by gpu-screen-recorder. Uses AMD or NVIDIA hardware encoding when available and falls back to CPU encoding, so it records with the dGPU off.",
+    "version": "1.0.0",
+    "author": "nuarthy",
+    "license": "MIT",
+    "icon": "videocam",
+    "type": "composite",
+    "capabilities": [
+        "daemon",
+        "dankbar-widget",
+        "control-center"
+    ],
+    "components": {
+        "daemon": "./RecorderDaemon.qml",
+        "widget": "./RecorderWidget.qml"
+    },
+    "settings": "./RecorderSettings.qml",
+    "startupCheck": "./StartupCheck.qml",
+    "dependencies": [
+        "gpu-screen-recorder"
+    ],
+    "requires_dms": ">=1.6.0",
+    "permissions": [
+        "settings_read",
+        "settings_write",
+        "process"
+    ]
+}
