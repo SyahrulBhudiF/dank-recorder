@@ -266,9 +266,9 @@ PluginComponent {
         const requestId = _nextRequest();
         _target = {"source": source, "region": region || ""};
         const file = outputDir + "/" + _timestamp() + "." + container;
-        stateVar.set("starting");
+        stateVar.set("resolving");
         Proc.runCommand("dankRecorder.mkdir", ["mkdir", "-p", outputDir], (output, exitCode) => {
-            if (!_isCurrentRequest(requestId) || state !== "starting")
+            if (!_isCurrentRequest(requestId) || state !== "resolving")
                 return;
             if (exitCode !== 0) {
                 stateVar.set("idle");
